@@ -1,0 +1,6 @@
+{
+  "servicesPath" : "services",
+  "controllersPath" : "controllers",
+  "servicesPlaceholdersPath" : "./placeholders/services",
+  "controllerPlaceholderFile" : "./placeholders/controllers/NAMEController.js"
+}
