@@ -1,10 +1,12 @@
 const fs = require('fs')
+const sh = require('shelljs');
 const sink = require('stream-sink')
 
 // Creates directory, if it does not exist, synchronously
 function mkdir(dir) {
-  if (!fs.existsSync(dir))
-    fs.mkdirSync(dir)
+  if (!fs.existsSync(dir)){
+    sh.mkdir('-p', dir);
+  }
 }
 
 // Accumulates stream content.
