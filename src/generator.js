@@ -5,6 +5,10 @@ const path = require('path')
 const pipeStreams = require('pipe-streams-to-promise')
 const Q = require('q')
 
+// Generate desired output from:
+// arg - provided service/controller/model name
+// placeholderDir - placeholder directory
+// placeholderFiles - which placeholders to use
 module.exports.start = (arg, placeholderDir, placeholderFiles, outputDir) => {
   // Make output dir
   utils.mkdir(outputDir)

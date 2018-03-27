@@ -7,7 +7,7 @@ const config = require('../gen-config.json')
 const sh = require('shelljs')
 const cwd = String(sh.pwd())
 
-// Distribute work
+// Distribute work -> spawn processes
 function run(args) {
   // Generate services
   if (args.service) {
