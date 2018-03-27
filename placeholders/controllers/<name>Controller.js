@@ -1,8 +1,3 @@
-module.exports = function () {
-  // TODO: implement <name> controller
-  throw new Error("<name>Controller not yet implemented.")
-}
-
 function getAll(req, res) {
   // TODO: implement <name> controller - index
   throw new Error("<name>Controller::getAll not yet implemented.")
