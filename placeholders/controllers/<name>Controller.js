@@ -1,3 +1,5 @@
+var <Name> = require('../services/<names>')
+
 function getAll(req, res) {
   // TODO: implement <name> controller - index
   throw new Error("<name>Controller::getAll not yet implemented.")
