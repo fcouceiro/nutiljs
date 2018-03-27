@@ -1,20 +1,48 @@
-var sh = require('shelljs');
-var fs = require('fs')
-var path = require('path')
-var inflection = require('inflection')
-var Q = require('q')
-var pipeStreams = require('pipe-streams-to-promise')
+const sh = require('shelljs');
+const fs = require('fs')
+const path = require('path')
 
-// Current Working Directory
-let cwd = String(sh.pwd())
+// Handle pluralization/singularization transforms
+const inflection = require('inflection')
 
-// Denodeify
-let readdir = Q.denodeify(fs.readdir)
-let readFile = Q.denodeify(fs.readFile)
+// Promise handling
+const Q = require('q')
 
-module.exports.run = function(cliArgs) {
+// Denodeify (turn into promises)
+const readdir = Q.denodeify(fs.readdir)
+const readFile = Q.denodeify(fs.readFile)
+
+// Stream handling
+const stream = require('stream')
+const Readable = stream.Readable
+const replaceStream = require('replacestream')
+const sink = require('stream-sink')
+const pipeStreams = require('pipe-streams-to-promise')
+
+// Get Current Working Directory
+const cwd = String(sh.pwd())
+
+// Placeholder keys (lazy loaded)
+var PLACEHOLDER_KEYS;
+
+// Entry-point
+module.exports.run = function (cliArgs) {
   return parseConfig()
     .then(config => {
+      // Cache placeholder keys
+      PLACEHOLDER_KEYS = config.placeholderKeys
+      let modelStream = replacePlaceholderOccurrences(fs.createReadStream(path.join(__dirname, "../placeholders","models","NAME.js")), cliArgs.controller)
+      console.log(cwd)
+      modelStream.pipe(fs.createWriteStream(path.join(__dirname, "../test.js")))
+
+      // sinkStream(modelStream)
+      //   .then((data) => {
+      //     console.log(Buffer.concat(data).toString('utf8'))
+      //   })
+      //   .catch((error) => {
+      //     console.error(data)
+      //   })
+
       // Parse services placeholders
       return parsePlaceholders(path.join(__dirname, config.servicesPlaceholdersPath))
         .then(servicesPlaceholdersFiles => {
@@ -33,7 +61,7 @@ function parsePlaceholders(placeholdersPath) {
 
 // Parse configuration
 function parseConfig() {
-  return readFile(path.join(__dirname,'gen-config.json'), 'utf8')
+  return readFile(path.join(__dirname, '..', 'gen-config.json'), 'utf8')
     .then(data => {
       return JSON.parse(data)
     });
@@ -75,7 +103,7 @@ function generate(argv, config, servicesPlaceholderFiles) {
       // Copy file
       let servicePath = path.join(serviceDir, serviceName)
       let servicePlaceholderPath = path.join(__dirname, config.servicesPlaceholdersPath, servicePlaceholderFile)
-      copies.push(copyFile(servicePlaceholderPath, servicePath))
+      copies.push(copyFile(servicePlaceholderPath, servicePath, serviceNameSingular))
     });
 
     Q.all(copies).then(() => console.log("\t", serviceArg, "service completed ✅"))
@@ -96,7 +124,7 @@ function generate(argv, config, servicesPlaceholderFiles) {
 
     // Copy file
     let controllerPath = path.join(cwd, config.controllersPath, controllerName)
-    copyFile(path.join(__dirname, config.controllerPlaceholderFile), controllerPath)
+    copyFile(path.join(__dirname, config.controllerPlaceholderFile), controllerPath, controllerArg)
       .then(() => console.log("\t", controllerArg, "controller completed ✅"))
   }
 }
@@ -107,19 +135,32 @@ function mkdir(dir) {
     fs.mkdirSync(dir)
 }
 
-function copyFile(source, target, logEnabled) {
+function copyFile(source, target, replaceContent, logEnabled) {
+  let streams = []
+
   // Source read stream
-  let rd = fs.createReadStream(source)
+  streams.push(fs.createReadStream(source))
+
+  // Replace text occurrences
+  if (replaceContent) {
+    streams.push(replaceStream("<name>", replaceContent.toLowerCase(), { ignoreCase: false }))
+    streams.push(replaceStream("<NAME>", replaceContent.toUpperCase(), { ignoreCase: false }))
+  }
 
   // Target write stream
-  let wr = fs.createWriteStream(target)
+  streams.push(fs.createWriteStream(target))
 
   // Pipe source to target
-  let promise = pipeStreams([rd, wr])
+  let promise = pipeStreams(streams)
   if (logEnabled)
     promise.then(logCompletion)
 
   return promise
+}
+
+function sinkStream(stream){
+  // Sink stream result as object and catch errors
+  return strem.pipe(sink.object({ upstreamError: true }))
 }
 
 function logCompletion(writeStream) {
