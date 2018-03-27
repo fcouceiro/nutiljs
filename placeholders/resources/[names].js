@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var controller = require('../controllers/<name>Controller')
+var controller = require('../controllers/[name]Controller')
 
 // Resource routes CRUD + Index
 

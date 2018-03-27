@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-/// TODO: implement <Name> schema.
+/// TODO: implement [Name] schema.
 /// Below is an example of using String, Number and sub-document properties.
-const <Name>Schema = new mongoose.Schema({
+const [Name]Schema = new mongoose.Schema({
   text: String,
   number: Number,
   subdocs: [{
@@ -14,4 +14,4 @@ const <Name>Schema = new mongoose.Schema({
   }]
 });
 
-module.exports = mongoose.model('<Name>', <Name>Schema);
+module.exports = mongoose.model('[Name]', [Name]Schema);

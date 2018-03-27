@@ -9,14 +9,14 @@
   "resourcesPlaceholdersPath" : "../placeholders/resources",
   "placeholderKeys" : {
     "singular" : {
-      "lowerCase" : "<name>",
-      "upperCase" : "<NAME>",
-      "pascalCase" : "<Name>"
+      "lowerCase" : "[name]",
+      "upperCase" : "[NAME]",
+      "pascalCase" : "[Name]"
     },
     "plural" : {
-      "lowerCase" : "<names>",
-      "upperCase" : "<NAMES>",
-      "pascalCase" : "<Names>"
+      "lowerCase" : "[names]",
+      "upperCase" : "[NAMES]",
+      "pascalCase" : "[Names]"
     }
   }
 }
