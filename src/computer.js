@@ -34,6 +34,19 @@ function run(args) {
     // Spawn process
     child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
   }
+
+  // Generate models
+  if (args.model) {
+    let processArgs = {
+      argument : args.model,
+      type : 'model',
+      placeholdersPath : path.join(__dirname, config.modelsPlaceholdersPath),
+      outputDir : path.join(cwd, config.modelsPath)
+    }
+
+    // Spawn process
+    child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
+  }
 }
 
 // Entry-point

@@ -9,6 +9,7 @@ program
   .version('0.0.1', '-v, --version')
   .option('-c, --controller <controller>', 'The name of the controller to generate')
   .option('-s, --service <service>', 'The name of the service to generate')
+  .option('-m, --model <model>', 'The name of the model to generate')
   .parse(process.argv)
 
 // Show usage info if no options were provided
