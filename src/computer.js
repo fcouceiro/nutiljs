@@ -19,7 +19,7 @@ function run(args) {
     }
 
     // Spawn process
-    child_process.fork('./src/process', [JSON.stringify(processArgs)]);    
+    child_process.fork(path.join(__dirname, 'process'), [JSON.stringify(processArgs)]);    
   }
 
   // Generate controllers
@@ -32,7 +32,7 @@ function run(args) {
     }
 
     // Spawn process
-    child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
+    child_process.fork(path.join(__dirname, 'process'), [JSON.stringify(processArgs)]);  
   }
 
   // Generate models
@@ -45,7 +45,7 @@ function run(args) {
     }
 
     // Spawn process
-    child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
+    child_process.fork(path.join(__dirname, 'process'), [JSON.stringify(processArgs)]);  
   }
 
   // Generate resources
@@ -58,7 +58,7 @@ function run(args) {
     }
 
     // Spawn process
-    child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
+    child_process.fork(path.join(__dirname, 'process'), [JSON.stringify(processArgs)]);  
   }
 }
 
