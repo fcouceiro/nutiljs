@@ -1,7 +1,7 @@
 {
   "name": "nutil",
   "version": "0.0.1",
-  "description": "A command-line tool for generating controllers and services based on placeholders provided by the user.",
+  "description": "A command-line tool for generating controllers, services and models based on placeholders provided by the user.",
   "main": "index.js",
   "bin": {
     "nutil": "./index.js"
