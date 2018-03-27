@@ -10,6 +10,7 @@ program
   .option('-c, --controller <controller>', 'The name of the controller to generate')
   .option('-s, --service <service>', 'The name of the service to generate')
   .option('-m, --model <model>', 'The name of the model to generate')
+  .option('-r, --resource <resource>', 'The name of the resource to generate')
   .parse(process.argv)
 
 // Show usage info if no options were provided

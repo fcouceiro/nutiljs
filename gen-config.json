@@ -2,9 +2,11 @@
   "servicesPath" : "services",
   "controllersPath" : "controllers",
   "modelsPath" : "models",
+  "resourcesPath" : "resources",
   "servicesPlaceholdersPath" : "../placeholders/services",
   "controllersPlaceholdersPath" : "../placeholders/controllers",
   "modelsPlaceholdersPath" : "../placeholders/models",
+  "resourcesPlaceholdersPath" : "../placeholders/resources",
   "placeholderKeys" : {
     "singular" : {
       "lowerCase" : "<name>",

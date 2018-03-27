@@ -47,6 +47,19 @@ function run(args) {
     // Spawn process
     child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
   }
+
+  // Generate resources
+  if (args.resource) {
+    let processArgs = {
+      argument : args.resource,
+      type : 'resource',
+      placeholdersPath : path.join(__dirname, config.resourcesPlaceholdersPath),
+      outputDir : path.join(cwd, config.resourcesPath)
+    }
+
+    // Spawn process
+    child_process.fork('./src/process', [JSON.stringify(processArgs)]);  
+  }
 }
 
 // Entry-point
