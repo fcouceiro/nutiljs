@@ -28,6 +28,12 @@ Create a service based on provided placeholders:
 
   
 
+Create a model based on provided placeholders:
+
+    nutil --model (-m) <modelName>
+
+  
+
 Create both a controller and a service:
 
     nutil -s <serviceName> -c <controllerName>
