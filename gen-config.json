@@ -2,5 +2,17 @@
   "servicesPath" : "services",
   "controllersPath" : "controllers",
   "servicesPlaceholdersPath" : "./placeholders/services",
-  "controllerPlaceholderFile" : "./placeholders/controllers/NAMEController.js"
+  "controllerPlaceholderFile" : "./placeholders/controllers/NAMEController.js",
+  "placeholderKeys" : {
+    "singular" : {
+      "lowerCase" : "<name>",
+      "upperCase" : "<NAME>",
+      "pascalCase" : "<Name>"
+    },
+    "plural" : {
+      "lowerCase" : "<names>",
+      "upperCase" : "<NAMES>",
+      "pascalCase" : "<Names>"
+    }
+  }
 }
