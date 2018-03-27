@@ -17,6 +17,6 @@ router.get('/:id', controller.get)
 router.put('/:id', controller.update)
 
 // Delete
-router.get('/:id', controller.delete)
+router.get('/:id', controller.remove)
 
 module.exports = router
