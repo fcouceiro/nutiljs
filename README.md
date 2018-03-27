@@ -16,19 +16,19 @@ You will then be able to run `nutil` from the command line.
 
 ## Usage
 
-Create a controller based on the provided placeholder:
+Create a controller based on the [provided placeholder](https://github.com/fcouceiro/supreme-potato/tree/master/nutil/placeholders/controllers):
 
     nutil --controller (-c) <controllerName>
 
   
 
-Create a service based on provided placeholders:
+Create a service based on [provided placeholder](https://github.com/fcouceiro/supreme-potato/tree/master/nutil/placeholders/services):
 
     nutil --service (-s) <serviceName>
 
   
 
-Create a model based on provided placeholders:
+Create a model based on [provided placeholder](https://github.com/fcouceiro/supreme-potato/tree/master/nutil/placeholders/models):
 
     nutil --model (-m) <modelName>
 
