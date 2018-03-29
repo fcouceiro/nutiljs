@@ -6,7 +6,7 @@ A command-line tool for generating boilerplate (controllers, services, models an
 ## Installation
 
 Run:
-* `yarn install` or `npm install`
+* `yarn add @fcouceiro/nutil` or `npm i @fcouceiro/nutil`
 
 You will then be able to run `nutil` from the command line. 
 
