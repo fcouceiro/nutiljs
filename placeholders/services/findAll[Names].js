@@ -1,3 +1,5 @@
+const [Name] = require('../../models/[name]')
+
 module.exports = function(){
-  // find all
+  return [Name].find()
 }

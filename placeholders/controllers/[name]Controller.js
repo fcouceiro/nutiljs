@@ -1,18 +1,21 @@
-var [Name] = require('../services/[names]')
+const [Name] = require('../services/[names]')
 
 function getAll(req, res) {
-  // TODO: implement [name] controller - index
-  throw new Error("[name]Controller::getAll not yet implemented.")
+  [Name].findAll()
+    .then([names] => res.json([names]))
+    .catch(error => res.send(error))
 }
 
 function create(req, res) {
-  // TODO: implement [name] controller - create
-  throw new Error("[name]Controller::create not yet implemented.")
+  [Name].insert(req.body)
+    .then([name] => res.json([name]))
+    .catch(error => res.send(error))
 }
 
 function get(req, res) {
-  // TODO: implement [name] controller - get
-  throw new Error("[name]Controller::get not yet implemented.")
+  [Name].findById(req.params.id)
+    .then([name] => res.json([name]))
+    .catch(error => res.send(error))
 }
 
 function update(req, res) {
@@ -21,8 +24,9 @@ function update(req, res) {
 }
 
 function remove(req, res) {
-  // TODO: implement [name] controller - remove
-  throw new Error("[name]Controller::remove not yet implemented.")
+  [Name].remove(req.params.id)
+    .then([name] => res.json([name]))
+    .catch(error => res.send(error))
 }
 
 // Expose API

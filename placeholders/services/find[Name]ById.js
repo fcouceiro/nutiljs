@@ -1,3 +1,5 @@
-module.exports = function(){
-  // find by id
+const [Name] = require('../../models/[name]')
+
+module.exports = function(id){
+  return [Name].findById(id)
 }

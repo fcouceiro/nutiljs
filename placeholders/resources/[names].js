@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express.Router()
-var controller = require('../controllers/[name]Controller')
+const express = require('express')
+const router = express.Router()
+const controller = require('../controllers/[name]Controller')
 
 // Resource routes CRUD + Index
 
@@ -8,7 +8,7 @@ var controller = require('../controllers/[name]Controller')
 router.get('/', controller.getAll)
 
 // Create
-router.post('/:id', controller.create)
+router.post('/', controller.create)
 
 // Read
 router.get('/:id', controller.get)
@@ -17,6 +17,6 @@ router.get('/:id', controller.get)
 router.put('/:id', controller.update)
 
 // Delete
-router.get('/:id', controller.remove)
+router.delete('/:id', controller.remove)
 
 module.exports = router
