@@ -5,10 +5,23 @@ A command-line tool for generating boilerplate (controllers, services, models an
 
 ## Installation
 
-Run:
-* `yarn add @fcouceiro/nutil` or `npm i @fcouceiro/nutil`
+### Globally:
+* `yarn global add @fcouceiro/nutil`
+
+or 
+* `npm i -g @fcouceiro/nutil`
 
 You will then be able to run `nutil` from the command line. 
+
+### Locally:
+* `yarn add @fcouceiro/nutil`
+
+or 
+* `npm i @fcouceiro/nutil`
+
+Use a package runner like [npx](https://www.npmjs.com/package/npx) to run locally installed packages.
+
+You will then be able to run `npx nutil` from the command line.
 
 ## Usage
 
@@ -38,6 +51,9 @@ Create a resource based on [provided placeholder](https://github.com/fcouceiro/n
 Multiple generations can take place with a single command, by concatenatig different options. Example: create both a controller and a service:
 
     nutil -s <serviceName> -c <controllerName>
+
+
+__Note:__ Generated files will be created in the directory where you run `nutil` from (cwd)
 
 ## How it works
 There is a pre-defined set of placeholder keys, as represented in the following table:
