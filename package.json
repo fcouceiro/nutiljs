@@ -1,6 +1,6 @@
 {
   "name": "@fcouceiro/nutil",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A command-line tool for generating boilerplate (controllers, services, models and resources) based on placeholders provided by the user.",
   "main": "index.js",
   "bin": {
