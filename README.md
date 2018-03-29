@@ -5,12 +5,8 @@ A command-line tool for generating controllers and services based on placeholder
 
 ## Installation
 
-This package will soon be published to the npm registry. 
-Until then, run:
+Run:
 * `yarn install` or `npm install`
-* `npm link`
-
-inside the package dir. 
 
 You will then be able to run `nutil` from the command line. 
 
@@ -45,7 +41,7 @@ Create both a controller and a service:
     nutil -s <serviceName> -c <controllerName>
 
 ## Placeholders
-Both controllers and services are generated based on placeholders provided by the user. 
+All boilerplate is generated based on placeholders provided by the user. 
 
 Placeholders must be placed inside `placeholders/` folder. 
 
