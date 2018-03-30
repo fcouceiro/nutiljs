@@ -1,19 +1,20 @@
-const [Name] = require('../services/[names]')
+const [Names] = require('../services/[names]')
 
 function getAll(req, res) {
-  [Name].findAll()
+  [Names].findAll()
     .then([names] => res.json([names]))
     .catch(error => res.send(error))
 }
 
 function create(req, res) {
-  [Name].insert(req.body)
-    .then([name] => res.json([name]))
-    .catch(error => res.send(error))
+  [Names].validate.creation(req.body)
+  .then(body => [Names].insert(req.body))
+  .then([name] => res.json([name]))
+  .catch(error => res.status(400).send(error))
 }
 
 function get(req, res) {
-  [Name].findById(req.params.id)
+  [Names].findById(req.params.id)
     .then([name] => res.json([name]))
     .catch(error => res.send(error))
 }
@@ -24,7 +25,7 @@ function update(req, res) {
 }
 
 function remove(req, res) {
-  [Name].remove(req.params.id)
+  [Names].remove(req.params.id)
     .then([name] => res.json([name]))
     .catch(error => res.send(error))
 }
