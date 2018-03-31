@@ -8,9 +8,9 @@ function getAll(req, res) {
 
 function create(req, res) {
   [Names].validate.creation(req.body)
-  .then(body => [Names].insert(req.body))
-  .then([name] => res.json([name]))
-  .catch(error => res.status(400).send(error))
+    .then(body => [Names].insert(req.body))
+    .then([name] => res.json([name]))
+    .catch(error => res.status(400).send(error))
 }
 
 function get(req, res) {
