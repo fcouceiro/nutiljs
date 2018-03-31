@@ -8,7 +8,7 @@ function getAll(req, res) {
 
 function create(req, res) {
   [Names].validate.creation(req.body)
-    .then(body => [Names].insert(req.body))
+    .then(body => [Names].insert(body))
     .then([name] => res.json([name]))
     .catch(error => res.status(400).send(error))
 }
@@ -20,8 +20,10 @@ function get(req, res) {
 }
 
 function update(req, res) {
-  // TODO: implement [name] controller - update
-  throw new Error("[name]Controller::update not yet implemented.")
+  [Names].validate.update(req.body)
+    .then(body => [Names].update(req.params.id, body))
+    .then([name] => res.json([name]))
+    .catch(error => res.status(400).send(error))
 }
 
 function remove(req, res) {
