@@ -77,4 +77,4 @@ Feel free to use different placeholder keys in both file name and content, as de
 
 Placeholders must be placed inside `placeholders/` folder. 
 
-A few basic placeholders are included by default (using mongoose).
+A few basic placeholders are included by default (using mongoose for model generation and [Joi](https://www.npmjs.com/package/joi) for model validation).
