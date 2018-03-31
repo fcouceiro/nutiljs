@@ -6,7 +6,7 @@ var utils = require('./src/utils')
 
 // Create CLI program
 program
-  .version('0.2.0', '-v, --version')
+  .version('0.2.1', '-v, --version')
   .option('-c, --controller <controller>', 'The name of the controller to generate')
   .option('-s, --service <service>', 'The name of the service to generate')
   .option('-m, --model <model>', 'The name of the model to generate')
