@@ -11,6 +11,7 @@ program
   .option('-s, --service <service>', 'The name of the service to generate')
   .option('-m, --model <model>', 'The name of the model to generate')
   .option('-r, --resource <resource>', 'The name of the resource to generate')
+  .option('-a, --all <name>', 'The name of the controller + service + model + resource to generate')
   .parse(process.argv)
 
 // Show usage info if no options were provided

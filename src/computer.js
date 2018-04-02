@@ -9,6 +9,9 @@ const cwd = String(sh.pwd())
 
 // Distribute work -> spawn processes
 function run(args) {
+  // Populate args if all were requested.
+  args = mergeArguments(args)
+
   // Generate services
   if (args.service) {
     let processArgs = {
@@ -60,6 +63,30 @@ function run(args) {
     // Spawn process
     child_process.fork(path.join(__dirname, 'process'), [JSON.stringify(processArgs)]);  
   }
+}
+
+// Populate args if all were requested.
+// Note: extra requested types are kept.
+function mergeArguments(args) {
+  if (args.all) {
+    if (!args.service) {
+      args.service = args.all
+    }
+
+    if (!args.controller) {
+      args.controller = args.all
+    }
+
+    if (!args.model) {
+      args.model = args.all
+    }
+
+    if (!args.resource) {
+      args.resource = args.all
+    }
+  }
+
+  return args
 }
 
 // Entry-point
