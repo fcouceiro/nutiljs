@@ -1,6 +1,6 @@
 {
   "name": "@fcouceiro/nutil",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A command-line tool for generating boilerplate (controllers, services, models and resources) based on placeholders provided by the user.",
   "main": "index.js",
   "bin": {
@@ -16,7 +16,7 @@
   "author": "Francisco Couceiro <couceiro.f@gmail.com> (https://remote.com/franciscocouceiro)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/npm.git"
+    "url": "https://github.com/fcouceiro/nutil.git"
   },
   "license": "MIT",
   "dependencies": {
