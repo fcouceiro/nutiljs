@@ -7,18 +7,18 @@ A command-line tool for generating boilerplate (controllers, services, models an
 ## Installation
 
 ### Globally:
-* `yarn global add @fcouceiro/nutil`
+* `yarn global add nutiljs`
 
 or 
-* `npm i -g @fcouceiro/nutil`
+* `npm i -g nutiljs`
 
 You will then be able to run `nutil` from the command line. 
 
 ### Locally:
-* `yarn add @fcouceiro/nutil`
+* `yarn add nutiljs`
 
 or 
-* `npm i @fcouceiro/nutil`
+* `npm i nutiljs`
 
 Use a package runner like [npx](https://www.npmjs.com/package/npx) to run locally installed packages.
 
