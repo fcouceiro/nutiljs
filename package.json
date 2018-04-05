@@ -1,6 +1,6 @@
 {
   "name": "nutiljs",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A command-line tool for generating boilerplate (controllers, services, models and resources) based on placeholders provided by the user.",
   "main": "index.js",
   "bin": {
